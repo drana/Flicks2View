@@ -38,7 +38,7 @@ public class MovieActivity extends AppCompatActivity {
 
 
         //setup async http client https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed
-        String url = NetworkUtil.API_URL + "/now_playing?api_key=" + NetworkUtil.API_KEY;
+        String url = NetworkUtil.API_URL + NetworkUtil.API_KEY;
         AsyncHttpClient client = new AsyncHttpClient();
         RequestParams params = new RequestParams();
         params.put("q", "android");
