@@ -40,8 +40,8 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         TextView tvMovieInfo = (TextView) convertView.findViewById(R.id.txtview_MovieInfo);
 
         // Populate the data into the template view using the data object
-        tvMovieTitle.setText(movie.movieTitle);
-        tvMovieInfo.setText(movie.movieInfo);
+        tvMovieTitle.setText(movie.getOriginalTitle());
+        tvMovieInfo.setText(movie.getOverview());
 
         // Return the completed view to render on screen
         return convertView;
