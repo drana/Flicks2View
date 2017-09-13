@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.db.dipenrana.flicks2view.R;
@@ -36,12 +37,14 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_movie, parent, false);
         }
         // Lookup view for data population
-        TextView tvMovieTitle = (TextView) convertView.findViewById(R.id.txtview_MovieTitle);
-        TextView tvMovieInfo = (TextView) convertView.findViewById(R.id.txtview_MovieInfo);
+        TextView tvMovieTitle = convertView.findViewById(R.id.txtview_MovieTitle);
+        TextView tvMovieInfo = convertView.findViewById(R.id.txtview_MovieInfo);
+        ImageView ivMoviePath = convertView.findViewById(R.id.iv_moviePoster);
 
         // Populate the data into the template view using the data object
         tvMovieTitle.setText(movie.getOriginalTitle());
         tvMovieInfo.setText(movie.getOverview());
+
 
         // Return the completed view to render on screen
         return convertView;

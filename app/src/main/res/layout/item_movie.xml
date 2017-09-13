@@ -2,36 +2,44 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_moviePoster"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/movieposter"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/imgviewMargin"/>
+
     <TextView
         android:id="@+id/txtview_MovieTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_height="@dimen/titleHeight"
+        android:layout_marginTop="@dimen/txtviewMargin"
+        android:layout_marginBottom="@dimen/txtviewMargin"
+        android:layout_marginRight="@dimen/txtviewMargin"
         android:text="Title"
         android:textStyle="bold"
         android:maxLines="1"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
-
-    <ImageView
-        android:id="@+id/moviePoster"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY"
-        android:src="@drawable/movieposter"
-        android:layout_below="@+id/txtview_MovieTitle"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/iv_moviePoster" />
 
     <TextView
         android:id="@+id/txtview_MovieInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/txtviewMargin"
+        android:layout_marginBottom="@dimen/txtviewMargin"
+        android:layout_marginRight="@dimen/txtviewMargin"
         android:text="Overview"
-        android:layout_alignTop="@+id/moviePoster"
         android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/moviePoster" />
+        android:layout_below="@+id/txtview_MovieTitle"
+        android:layout_toEndOf="@+id/iv_moviePoster"
+        android:layout_alignStart="@+id/txtview_MovieTitle" />
+
+
 </RelativeLayout>

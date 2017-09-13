@@ -19,15 +19,20 @@ import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity {
 
-
-    private JSONArray movieJsonResults = null;
-    private ArrayList<Movie> movies;
-
+    private ArrayList<Movie> movies = new ArrayList<Movie>();
+    MoviesAdapter moviesAdapter;
+    ListView lvItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
+        //adapter to convert list of movies to view
+        moviesAdapter = new MoviesAdapter(this, movies);
+
+        //attach listview to adpater
+        lvItems = (ListView) findViewById(R.id.lvMovies);
+        lvItems.setAdapter(moviesAdapter);
 
 
 
@@ -43,9 +48,10 @@ public class MovieActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
 
                 try {
-                    //movieJsonResults = response.getJSONArray("results");
-                    movies = Movie.fromJsonArray(response.getJSONArray("results"));
-                    listofMovies(movies);
+
+                    movies.addAll(Movie.GetMoviesfromJsonArray(response.getJSONArray("results")));
+                    moviesAdapter.notifyDataSetChanged();
+                    //listofMovies(movies);
                     Log.d("Debug","httpclient get success");
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -63,7 +69,7 @@ public class MovieActivity extends AppCompatActivity {
 
     public void listofMovies(ArrayList<Movie> movieList){
         //adapter to convert list of movies to view
-        MoviesAdapter moviesAdapter = new MoviesAdapter(this, movies);
+        MoviesAdapter moviesAdapter = new MoviesAdapter(this, movieList);
 
         //attach listview to adpater
         ListView lvMovies = (ListView) findViewById(R.id.lvMovies);
