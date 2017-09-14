@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.db.dipenrana.flicks2view.R;
 import com.db.dipenrana.flicks2view.models.Movie;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -40,10 +41,12 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         TextView tvMovieTitle = convertView.findViewById(R.id.txtview_MovieTitle);
         TextView tvMovieInfo = convertView.findViewById(R.id.txtview_MovieInfo);
         ImageView ivMoviePath = convertView.findViewById(R.id.iv_moviePoster);
+        ivMoviePath.setImageResource(0);
 
         // Populate the data into the template view using the data object
         tvMovieTitle.setText(movie.getOriginalTitle());
         tvMovieInfo.setText(movie.getOverview());
+        Picasso.with(getContext()).load(movie.getPosterPath()).into(ivMoviePath);
 
 
         // Return the completed view to render on screen

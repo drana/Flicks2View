@@ -1,5 +1,7 @@
 package com.db.dipenrana.flicks2view.models;
 
+import com.db.dipenrana.flicks2view.utils.NetworkUtil;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,7 +22,8 @@ public class Movie {
     }
 
     public String getPosterPath() {
-        return posterPath;
+
+        return (NetworkUtil.BACKDROP_PATH + posterPath);
     }
 
     String originalTitle;
