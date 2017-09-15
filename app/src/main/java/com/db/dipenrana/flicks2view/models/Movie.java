@@ -23,7 +23,7 @@ public class Movie {
 
     public String getPosterPath() {
 
-        return (NetworkUtil.BACKDROP_PATH + posterPath);
+        return (NetworkUtil.POSTER_PATH + posterPath);
     }
 
     String originalTitle;

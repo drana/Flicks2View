@@ -22,6 +22,14 @@ import java.util.ArrayList;
 
 public class MoviesAdapter extends ArrayAdapter<Movie> {
 
+    String imgURL;
+    //lookup cache
+    private static class ViewHolder{
+        TextView movieTitile;
+        TextView movieInfo;
+        ImageView posterImage;
+    }
+
     public MoviesAdapter(Context context, ArrayList<Movie> movies) {
         super(context,0,movies);
     }
@@ -33,20 +41,40 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         // Get the data item for this position
         Movie movie = getItem(position);
 
+        //
+        ViewHolder viewHolder; //lookup cache object
         // Check if an existing view is being reused, otherwise inflate the view
         if (convertView == null) {
+            viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_movie, parent, false);
+            viewHolder.movieTitile = (TextView) convertView.findViewById(R.id.txtview_MovieTitle);
+            viewHolder.movieInfo = (TextView) convertView.findViewById(R.id.txtview_MovieInfo);
+            viewHolder.posterImage = (ImageView) convertView.findViewById(R.id.iv_moviePoster);
+            //cache viewHolder Object inside convertview
+            convertView.setTag(viewHolder);
+
+        }
+        else {
+            //retrieve the viewHolder from convertView to be recycled.
+            viewHolder = (ViewHolder) convertView.getTag();
         }
         // Lookup view for data population
-        TextView tvMovieTitle = convertView.findViewById(R.id.txtview_MovieTitle);
-        TextView tvMovieInfo = convertView.findViewById(R.id.txtview_MovieInfo);
-        ImageView ivMoviePath = convertView.findViewById(R.id.iv_moviePoster);
-        ivMoviePath.setImageResource(0);
+//        TextView tvMovieTitle = convertView.findViewById(R.id.txtview_MovieTitle);
+//        TextView tvMovieInfo = convertView.findViewById(R.id.txtview_MovieInfo);
+//        ImageView ivMoviePath = convertView.findViewById(R.id.iv_moviePoster);
+//        ivMoviePath.setImageResource(0);
 
         // Populate the data into the template view using the data object
-        tvMovieTitle.setText(movie.getOriginalTitle());
-        tvMovieInfo.setText(movie.getOverview());
-        Picasso.with(getContext()).load(movie.getPosterPath()).into(ivMoviePath);
+//        tvMovieTitle.setText(movie.getOriginalTitle());
+//        tvMovieInfo.setText(movie.getOverview());
+
+        viewHolder.movieTitile.setText(movie.getOriginalTitle());
+        viewHolder.movieInfo.setText(movie.getOverview());
+        //viewHolder.posterImage.setImageResource(0);
+
+        imgURL = movie.getPosterPath();
+
+        Picasso.with(getContext()).load(imgURL).into(viewHolder.posterImage);
 
 
         // Return the completed view to render on screen
