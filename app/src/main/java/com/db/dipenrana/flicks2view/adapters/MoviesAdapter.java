@@ -70,7 +70,7 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
 
         viewHolder.movieTitile.setText(movie.getOriginalTitle());
         viewHolder.movieInfo.setText(movie.getOverview());
-        //viewHolder.posterImage.setImageResource(0);
+        viewHolder.posterImage.setImageResource(0);
 
         imgURL = movie.getPosterPath();
 
