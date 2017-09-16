@@ -83,8 +83,6 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
             imgURL = movie.getBackdropPath();
         }
 
-        imgURL = movie.getPosterPath();
-
         Picasso.with(getContext())
                 .load(imgURL)
                 .fit()

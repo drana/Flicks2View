@@ -1,9 +1,11 @@
 package com.db.dipenrana.flicks2view.activities;
 
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.db.dipenrana.flicks2view.R;
 import com.db.dipenrana.flicks2view.adapters.MoviesAdapter;
@@ -57,6 +59,5 @@ public class MovieActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }
