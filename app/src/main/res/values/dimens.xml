@@ -5,5 +5,7 @@
     <dimen name="txtviewMargin">1dp</dimen>
     <dimen name="image_width">125dp</dimen>
     <dimen name="image_height">180dp</dimen>
+    <dimen name="image_width_land">200dp</dimen>
+    <dimen name="image_height_land">150dp</dimen>
 
 </resources>
