@@ -11,6 +11,8 @@
     <color name="icons">#D4D5D6</color>
     <color name="divider">#8D99AE</color>
 
+
+
 </resources>
 
     <!--&lt;!&ndash;#F3DD70&ndash;&gt;-->
@@ -32,3 +34,13 @@
     <!--<color name="secondary_text">#ADB6BF</color>-->
     <!--<color name="icons">#D4D5D6</color>-->
     <!--<color name="divider">#BDBDBD</color>-->
+
+<!--<color name="colorAccent">#FCFCFD</color>-->
+<!--<color name="colorPrimary">#2D2B37</color>-->
+<!--<color name="colorPrimaryDark">#FCFCFD</color>-->
+<!--<color name="primary_light">#C8E6C9</color>-->
+<!--<color name="accent">#0A9BED</color>-->
+<!--<color name="primary_text">#F3CB97</color>-->
+<!--<color name="secondary_text">#9382FD</color>-->
+<!--<color name="icons">#D4D5D6</color>-->
+<!--<color name="divider">#8D99AE</color>-->

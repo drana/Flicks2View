@@ -26,19 +26,33 @@ public class Movie {
         return (NetworkUtil.POSTER_PATH + posterPath);
     }
 
-    String originalTitle;
-    String overview;
-    String posterPath;
-    String backdropPath;
-    String releaseDate;
-    String voteAverage;
+    public String getBackdropPath() {
+        return (NetworkUtil.BACKDROP_PATH + backdropPath);
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public String getVoteAverage() {
+        return voteAverage;
+    }
+
+    private String originalTitle;
+    private String overview;
+    private String posterPath;
+    private String backdropPath;
+    private String releaseDate;
+    private String voteAverage;
+
+
 
 
     public Movie(JSONObject jsonObject) throws JSONException{
         this.originalTitle = jsonObject.getString("original_title");
         this.overview= jsonObject.getString("overview");
         this.posterPath = jsonObject.getString("poster_path");
-        this.posterPath = jsonObject.getString("backdrop_path");
+        this.backdropPath = jsonObject.getString("backdrop_path");
         this.releaseDate = jsonObject.getString("release_date");
         this.voteAverage = jsonObject.getString("vote_average");
     }
