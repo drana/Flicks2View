@@ -6,14 +6,14 @@
     <color name="colorPrimaryDark">#FCFCFD</color>
     <color name="primary_light">#C8E6C9</color>
     <color name="accent">#0A9BED</color>
-    <color name="primary_text">#A4A3A3</color>
+    <color name="primary_text">#F3DD70</color>
     <color name="secondary_text">#DFDFDF</color>
     <color name="icons">#D4D5D6</color>
-    <color name="divider">#F3DD70</color>
+    <color name="divider">#8D99AE</color>
 
 </resources>
 
-    <!--#F3DD70-->
+    <!--&lt;!&ndash;#F3DD70&ndash;&gt;-->
     <!--<color name="colorAccent">#FCFCFD</color>-->
     <!--<color name="colorPrimary">#141420</color>-->
     <!--<color name="colorPrimaryDark">#FCFCFD</color>-->
