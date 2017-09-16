@@ -22,6 +22,7 @@
         android:text="Title"
         android:textStyle="bold"
         android:textColor="@color/primary_text"
+        android:textSize="@dimen/titleTextSize"
         android:maxLines="1"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"

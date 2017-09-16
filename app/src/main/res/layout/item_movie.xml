@@ -26,6 +26,7 @@
         android:layout_marginRight="@dimen/txtviewMargin"
         android:text="Title"
         android:textStyle="bold"
+        android:textSize="@dimen/titleTextSize"
         android:textColor="@color/primary_text"
         android:maxLines="1"
         android:layout_alignParentTop="true"
