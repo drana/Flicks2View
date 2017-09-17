@@ -51,6 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical"
+        android:layout_marginTop="@dimen/imgviewMargin"
         android:layout_below="@id/txtview_MovieTitle"
         android:layout_toEndOf="@id/iv_moviePoster"
         android:id="@+id/llmovieRatings">
@@ -58,26 +59,45 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/avgRating"
+            android:id="@+id/dateReleased"
+            android:layout_gravity="center_vertical"
             android:layout_marginTop="@dimen/txtviewMargin"
             android:textColor="@color/secondary_text"
-            android:text="Rating"/>
+            android:drawableLeft="@drawable/ic_date_range_black_24dp"
+            android:drawablePadding="@dimen/imgviewMargin"
+            android:layout_margin="@dimen/imgviewMargin"
+            android:maxLines="1"/>
+
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/avgRating"-->
+            <!--android:layout_marginTop="@dimen/txtviewMargin"-->
+            <!--android:textColor="@color/secondary_text"-->
+            <!--android:layout_margin="@dimen/imgviewMargin"-->
+            <!--android:text="Rating"/>-->
+
+        <RatingBar
+            android:id="@+id/avgRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/ratingBarStyleSmall"
+
+            android:numStars="5"
+            android:stepSize="0.5"
+
+        />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Genre"
             android:textColor="@color/secondary_text"
+            android:layout_margin="@dimen/imgviewMargin"
             android:id="@+id/genres"
             android:layout_marginTop="@dimen/txtviewMargin"/>
 
-        <!--<RatingBar-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--style="?android:attr/ratingBarStyleSmall"-->
-            <!--android:numStars="5"-->
-            <!--android:stepSize="2"-->
-            <!--android:rating="5.0"/>-->
+
 
 
     </LinearLayout>

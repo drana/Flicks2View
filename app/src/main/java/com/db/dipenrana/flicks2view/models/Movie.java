@@ -104,8 +104,6 @@ public class Movie implements Parcelable{
     }
 
 
-
-
     public static ArrayList<Movie> GetMoviesfromJsonArray(JSONArray array){
         ArrayList<Movie> results = new ArrayList<Movie>();
 

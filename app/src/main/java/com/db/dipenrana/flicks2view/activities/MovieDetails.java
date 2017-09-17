@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.db.dipenrana.flicks2view.R;
@@ -34,10 +35,12 @@ public class MovieDetails extends AppCompatActivity {
     Movie movieDetail;
     private TextView title;
     private TextView overview;
-    private TextView ratings;
+    //private TextView ratings;
+    private RatingBar ratings;
     private TextView genre;
     private ImageView bckdropImage;
     private ImageView posterImage;
+    private TextView date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,13 +81,20 @@ public class MovieDetails extends AppCompatActivity {
 
         title = (TextView) findViewById(R.id.txtview_MovieTitle);
         overview = (TextView) findViewById(R.id.txtview_MovieInfo);
-        ratings = (TextView) findViewById(R.id.avgRating);
+        //ratings = (TextView) findViewById(R.id.avgRating);
+        ratings = (RatingBar) findViewById(R.id.avgRating);
         genre = (TextView) findViewById(R.id.genres);
         bckdropImage = (ImageView) findViewById(R.id.movieBackDrop);
         posterImage = (ImageView) findViewById(R.id.iv_moviePoster);
+        date = (TextView) findViewById(R.id.dateReleased);
 
-        title.setText(item.getOriginalTitle()+"("+item.getReleaseDate()+")");
-        ratings.setText("Ratings: "+item.getVoteAverage()+"/10");
+        //title.setText(item.getOriginalTitle()+"("+item.getReleaseDate()+")");
+        title.setText(item.getOriginalTitle());
+        date.setText(item.getReleaseDate());
+
+        float rate = Float.parseFloat(item.getVoteAverage());
+        ratings.setRating(rate/2);
+        //ratings.setText("Ratings: "+item.getVoteAverage()+"/10");
         overview.setText(item.getOverview());
 
 
