@@ -7,7 +7,8 @@
     <color name="primary_light">#C8E6C9</color>
     <color name="accent">#0A9BED</color>
     <color name="primary_text">#F3DD70</color>
-    <color name="secondary_text">#DFDFDF</color>
+    <!--<color name="secondary_text">#DFDFDF</color>-->
+    <color name="secondary_text">#ffffff</color>
     <color name="icons">#D4D5D6</color>
     <color name="divider">#8D99AE</color>
 

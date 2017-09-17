@@ -41,11 +41,14 @@
         android:layout_marginBottom="@dimen/txtviewMargin"
         android:layout_marginRight="@dimen/txtviewMargin"
         android:text="Overview"
+        android:ellipsize="end"
         android:textColor="@color/secondary_text"
+        android:textSize="@dimen/infoTextSize"
         android:maxLines="6"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/txtview_MovieTitle"
         android:layout_toEndOf="@+id/iv_moviePoster"
+        android:typeface="sans"
         android:layout_alignStart="@+id/txtview_MovieTitle" />
 
 

@@ -1,10 +1,13 @@
 package com.db.dipenrana.flicks2view.activities;
 
 import android.content.res.Configuration;
+import android.graphics.Typeface;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.db.dipenrana.flicks2view.R;
@@ -28,6 +31,11 @@ public class MovieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
+
+        //change actionbar title style
+        UpdateActionBar();
+
+
 
         //adapter to convert list of movies to view
         moviesAdapter = new MoviesAdapter(this, movies);
@@ -58,6 +66,17 @@ public class MovieActivity extends AppCompatActivity {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
+    }
+
+    private void UpdateActionBar() {
+        // in Activity#onCreate
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar_titile);
+
+        //set font and color for actiona bar
+        TextView title = (TextView) findViewById(R.id.actionBarTitle);
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Raleway-Regular.ttf");
+        title.setTypeface(font);
     }
 
 }
