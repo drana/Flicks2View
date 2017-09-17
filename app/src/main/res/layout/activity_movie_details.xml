@@ -60,12 +60,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/avgRating"
             android:layout_marginTop="@dimen/txtviewMargin"
-            android:text="Ratings"/>
+            android:textColor="@color/secondary_text"
+            android:text="Rating"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Genre"
+            android:textColor="@color/secondary_text"
             android:id="@+id/genres"
             android:layout_marginTop="@dimen/txtviewMargin"/>
 
@@ -77,9 +79,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Overview:"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:layout_below="@+id/iv_moviePoster"
-
+        android:textColor="@color/secondary_text"
 
          />
 

@@ -77,7 +77,7 @@ public class MovieDetails extends AppCompatActivity {
         ArrayList<Movie> results = new ArrayList<Movie>();
 
         title = (TextView) findViewById(R.id.txtview_MovieTitle);
-        overview = (TextView) findViewById(R.id.movieOverview);
+        overview = (TextView) findViewById(R.id.txtview_MovieInfo);
         ratings = (TextView) findViewById(R.id.avgRating);
         genre = (TextView) findViewById(R.id.genres);
         bckdropImage = (ImageView) findViewById(R.id.movieBackDrop);
