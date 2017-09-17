@@ -67,8 +67,6 @@ public class MovieActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-
                 // first parameter is the context, second is the class of the activity to launch
                 Movie details = movies.get(position);
                 Intent intent = new Intent(MovieActivity.this,MovieDetails.class);

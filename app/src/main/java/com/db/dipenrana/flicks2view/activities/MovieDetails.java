@@ -6,9 +6,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.db.dipenrana.flicks2view.R;
+import com.db.dipenrana.flicks2view.models.Genre;
 import com.db.dipenrana.flicks2view.models.Movie;
 import com.db.dipenrana.flicks2view.utils.NetworkUtil;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -17,21 +19,25 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.InputStream;
-import java.util.ArrayList;
 import com.loopj.android.http.*;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
 import cz.msebera.android.httpclient.Header;
+import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 
 public class MovieDetails extends AppCompatActivity {
 
-    JSONArray genres;
-    AsyncHttpClient client;
+
     Movie movieDetail;
     private TextView title;
     private TextView overview;
     private TextView ratings;
     private TextView genre;
+    private ImageView bckdropImage;
+    private ImageView posterImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +51,12 @@ public class MovieDetails extends AppCompatActivity {
         Intent i = getIntent();
         movieDetail = (Movie) i.getParcelableExtra("MOVIE_DETAIL");
 
-        client = new AsyncHttpClient();
-        GetMovieGenres();
-
         //setup movie details
-        SetupMovieDetail(movieDetail);
+        try {
+            SetupMovieDetail(movieDetail);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -66,39 +73,40 @@ public class MovieDetails extends AppCompatActivity {
     }
 
 
-    public void GetMovieGenres() {
-
-        //AsyncHttpClient client = new AsyncHttpClient();
-
-        client.get(NetworkUtil.GENRE_PATH, new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                try {
-
-                    genres = response.getJSONArray("genres");
-                    genres.notify();
-                    Log.d("Debug","httpclient get success");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                super.onFailure(statusCode, headers, throwable, errorResponse);
-            }
-        });
-    }
-
-    private void SetupMovieDetail(Movie item) {
+    private void SetupMovieDetail(Movie item) throws JSONException {
+        ArrayList<Movie> results = new ArrayList<Movie>();
 
         title = (TextView) findViewById(R.id.txtview_MovieTitle);
         overview = (TextView) findViewById(R.id.movieOverview);
         ratings = (TextView) findViewById(R.id.avgRating);
         genre = (TextView) findViewById(R.id.genres);
+        bckdropImage = (ImageView) findViewById(R.id.movieBackDrop);
+        posterImage = (ImageView) findViewById(R.id.iv_moviePoster);
 
         title.setText(item.getOriginalTitle()+"("+item.getReleaseDate()+")");
-        ratings.setText(item.getVoteAverage()+"/10");
-        //genre.setText(item.getGenreIDs().toString());
+        ratings.setText("Ratings: "+item.getVoteAverage()+"/10");
+        overview.setText(item.getOverview());
+
+
+        Picasso.with(this)
+                .load(item.getBackdropPath())
+                .fit()
+                .centerCrop()
+                .placeholder(R.drawable.posterplaceholder)
+                .error(R.drawable.postererror)
+                .noFade()
+                .transform(new RoundedCornersTransformation(10, 10))
+                .into(bckdropImage);
+
+        Picasso.with(this)
+                .load(item.getPosterPath())
+                .fit()
+                .centerCrop()
+                .placeholder(R.drawable.posterplaceholder)
+                .error(R.drawable.postererror)
+                .noFade()
+                .transform(new RoundedCornersTransformation(10, 10))
+                .into(posterImage);
 
 
 

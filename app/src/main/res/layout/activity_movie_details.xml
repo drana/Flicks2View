@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.db.dipenrana.flicks2view.activities.MovieDetails"
-    >
+    android:background="@color/colorPrimary">
     
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_marginTop="@dimen/imgviewMargin"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:src="@drawable/movieposter"
@@ -22,6 +23,7 @@
         android:id="@+id/iv_moviePoster"
         android:layout_width="@dimen/image_width"
         android:layout_height="@dimen/image_height"
+        android:layout_marginTop="@dimen/imgviewMargin"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_below="@+id/movieBackDrop"
@@ -35,9 +37,7 @@
         android:id="@+id/txtview_MovieTitle"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/titleHeight"
-        android:layout_marginTop="@dimen/txtviewMargin"
-        android:layout_marginBottom="@dimen/txtviewMargin"
-        android:layout_marginRight="@dimen/txtviewMargin"
+        android:layout_margin="@dimen/txtviewMargin"
         android:text="Title"
         android:textStyle="bold"
         android:textSize="@dimen/titleTextSize"
@@ -76,7 +76,7 @@
         android:id="@+id/movieOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Overview"
+        android:text="Overview:"
         android:textStyle="bold"
         android:layout_below="@+id/iv_moviePoster"
 
