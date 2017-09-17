@@ -1,11 +1,15 @@
 package com.db.dipenrana.flicks2view.activities;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
+import android.os.Parcelable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,6 +24,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MovieActivity extends AppCompatActivity {
@@ -27,6 +33,9 @@ public class MovieActivity extends AppCompatActivity {
     private ArrayList<Movie> movies = new ArrayList<Movie>();
     MoviesAdapter moviesAdapter;
     ListView lvItems;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +43,6 @@ public class MovieActivity extends AppCompatActivity {
 
         //change actionbar title style
         UpdateActionBar();
-
-
 
         //adapter to convert list of movies to view
         moviesAdapter = new MoviesAdapter(this, movies);
@@ -45,11 +52,37 @@ public class MovieActivity extends AppCompatActivity {
         lvItems.setAdapter(moviesAdapter);
 
         //setup async http client
+        ConnectHttpClient();
+
+        //setup on click listner for listview items
+        setupListViewListener();
+
+    }
+
+
+
+    private void setupListViewListener() {
+        //listener to edit items
+        lvItems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
+                // first parameter is the context, second is the class of the activity to launch
+                Movie details = movies.get(position);
+                Intent intent = new Intent(MovieActivity.this,MovieDetails.class);
+                intent.putExtra("MOVIE_DETAIL", details );
+                intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+            }
+        });
+    }
+
+    //setup async http client
+    private void ConnectHttpClient() {
         String url = NetworkUtil.API_URL + NetworkUtil.API_KEY;
         AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-//        params.put("q", "android");
-//        params.put("rsz", "8");
         client.get(url, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
@@ -66,6 +99,7 @@ public class MovieActivity extends AppCompatActivity {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
+
     }
 
     private void UpdateActionBar() {

@@ -1,6 +1,6 @@
 # Project 1 - *Fliks2View*
 
-**Name of Fliks2View app** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
+**Name of Flicks2View app** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
 Time spent: **25** hours spent in total
 

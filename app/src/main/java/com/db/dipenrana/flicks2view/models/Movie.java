@@ -1,20 +1,52 @@
 package com.db.dipenrana.flicks2view.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.db.dipenrana.flicks2view.utils.NetworkUtil;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Dictionary;
 
 /**
  * Created by dipenrana on 9/12/17.
  */
 
-public class Movie {
+public class Movie implements Parcelable{
+
+    protected Movie(Parcel in) {
+        originalTitle = in.readString();
+        movieID = in.readString();
+        overview = in.readString();
+        posterPath = in.readString();
+        backdropPath = in.readString();
+        releaseDate = in.readString();
+        voteAverage = in.readString();
+    }
+
+    public static final Creator<Movie> CREATOR = new Creator<Movie>() {
+        @Override
+        public Movie createFromParcel(Parcel in) {
+            return new Movie(in);
+        }
+
+        @Override
+        public Movie[] newArray(int size) {
+            return new Movie[size];
+        }
+    };
+
     public String getOriginalTitle() {
         return originalTitle;
+    }
+
+    public String getMovieID() {
+        return movieID;
     }
 
     public String getOverview() {
@@ -38,23 +70,32 @@ public class Movie {
         return voteAverage;
     }
 
+    public JSONArray getGenreIDs() {
+        return genreIDs;
+    }
+
+
     private String originalTitle;
+    private String movieID;
     private String overview;
     private String posterPath;
     private String backdropPath;
     private String releaseDate;
     private String voteAverage;
+    private JSONArray genreIDs;
 
 
 
 
     public Movie(JSONObject jsonObject) throws JSONException{
         this.originalTitle = jsonObject.getString("original_title");
+        this.movieID = jsonObject.getString("id");
         this.overview= jsonObject.getString("overview");
         this.posterPath = jsonObject.getString("poster_path");
         this.backdropPath = jsonObject.getString("backdrop_path");
         this.releaseDate = jsonObject.getString("release_date");
         this.voteAverage = jsonObject.getString("vote_average");
+        this.genreIDs = jsonObject.getJSONArray("genre_ids");
     }
 
 
@@ -69,5 +110,22 @@ public class Movie {
             }
         }
         return  results;
+    }
+
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(originalTitle);
+        parcel.writeString(movieID);
+        parcel.writeString(overview);
+        parcel.writeString(posterPath);
+        parcel.writeString(backdropPath);
+        parcel.writeString(releaseDate);
+        parcel.writeString(voteAverage);
     }
 }

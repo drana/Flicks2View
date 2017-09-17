@@ -10,5 +10,7 @@
     <dimen name="titleTextSize">20sp</dimen>
     <dimen name="infoTextSize">15sp</dimen>
     <dimen name="actionbarTitile">25sp</dimen>
+    <dimen name="imagedetailsW">150dp</dimen>
+    <dimen name="imagedetailsH">225dp</dimen>
 
 </resources>

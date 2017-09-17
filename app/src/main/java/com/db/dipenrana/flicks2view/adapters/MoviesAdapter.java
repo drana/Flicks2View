@@ -29,7 +29,7 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
         TextView movieTitile;
         TextView movieInfo;
         ImageView posterImage;
-        //ImageView backdropImage;
+
     }
 
     public MoviesAdapter(Context context, ArrayList<Movie> movies) {
@@ -52,6 +52,7 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
             viewHolder.movieTitile = (TextView) convertView.findViewById(R.id.txtview_MovieTitle);
             viewHolder.movieInfo = (TextView) convertView.findViewById(R.id.txtview_MovieInfo);
             viewHolder.posterImage = (ImageView) convertView.findViewById(R.id.iv_moviePoster);
+
 
             //cache viewHolder Object inside convertview
             convertView.setTag(viewHolder);
