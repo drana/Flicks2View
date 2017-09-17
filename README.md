@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/a/gUAhx' title='Video Walkthrough for Flicks2View app' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/4gjoskg' title='Flick2View' width='500' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
