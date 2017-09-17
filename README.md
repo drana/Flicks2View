@@ -34,6 +34,7 @@ The following **additional** features are implemented:
 
 * [X] Changed Position Sensors to Full Sensor for detecting orientation in all 4 directions.
 * [X] Display a placeholder grahic for error's in retrieving the image from the source(http://guides.codepath.com/android/Displaying-Images-with-the-Picasso-Library#configuring-picasso) for each image during loading.
+* [X] Apply custom ActionBar for changing font and color of title text. 
 
 ## Video Walkthrough
 
