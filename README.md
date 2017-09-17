@@ -2,7 +2,7 @@
 
 **Name of Fliks2View app** shows the latest movies currently playing in theaters. The app utilizes the Movie Database API to display images and basic information about these movies to the user.
 
-Time spent: **22** hours spent in total
+Time spent: **25** hours spent in total
 
 ## User Stories
 
@@ -40,7 +40,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/4gjoskg' title='Flick2View' width='500' alt='Video Walkthrough' />
+<img src='https://imgur.com/4gjoskg.gif' title='Flick2View app' width='500' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
