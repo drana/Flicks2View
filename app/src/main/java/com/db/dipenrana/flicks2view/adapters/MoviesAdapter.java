@@ -53,24 +53,13 @@ public class MoviesAdapter extends ArrayAdapter<Movie> {
             viewHolder.movieInfo = (TextView) convertView.findViewById(R.id.txtview_MovieInfo);
             viewHolder.posterImage = (ImageView) convertView.findViewById(R.id.iv_moviePoster);
 
-
             //cache viewHolder Object inside convertview
             convertView.setTag(viewHolder);
-
         }
         else {
             //retrieve the viewHolder from convertView to be recycled.
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        // Lookup view for data population
-//        TextView tvMovieTitle = convertView.findViewById(R.id.txtview_MovieTitle);
-//        TextView tvMovieInfo = convertView.findViewById(R.id.txtview_MovieInfo);
-//        ImageView ivMoviePath = convertView.findViewById(R.id.iv_moviePoster);
-//        ivMoviePath.setImageResource(0);
-
-        // Populate the data into the template view using the data object
-//        tvMovieTitle.setText(movie.getOriginalTitle());
-//        tvMovieInfo.setText(movie.getOverview());
 
         viewHolder.movieTitile.setText(movie.getOriginalTitle());
         viewHolder.movieInfo.setText(movie.getOverview());
