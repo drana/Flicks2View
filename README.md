@@ -41,8 +41,8 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://imgur.com/bXGakz1.gif' title='Flick2View app' width='500' alt='Video Walkthrough' />
-
+<img src='https://imgur.com/bXGakz1.gif' title='Flick2View app' width='500' alt='Video Walkthrough' />h
+<img src='https://imgur.com/7u8o98K.gif' title='Flick2View app' width='500' alt='Video Walkthrough' />
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
