@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Dictionary;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import com.loopj.android.http.*;
@@ -36,6 +37,9 @@ public class Movie implements Parcelable{
         backdropPath = in.readString();
         releaseDate = in.readString();
         voteAverage = in.readString();
+        //in.readStringList(genreList);
+        genreList = in.createStringArrayList();
+
     }
 
     public static final Creator<Movie> CREATOR = new Creator<Movie>() {
@@ -79,7 +83,9 @@ public class Movie implements Parcelable{
         return voteAverage;
     }
 
-
+    public List<String> getGenreList() {
+        return genreList;
+    }
 
 
     private String originalTitle;
@@ -92,6 +98,9 @@ public class Movie implements Parcelable{
 
 
 
+    List<String> genreList;
+
+
 
     public Movie(JSONObject jsonObject) throws JSONException{
         this.originalTitle = jsonObject.getString("original_title");
@@ -100,6 +109,9 @@ public class Movie implements Parcelable{
         this.posterPath = jsonObject.getString("poster_path");
         this.backdropPath = jsonObject.getString("backdrop_path");
         this.releaseDate = jsonObject.getString("release_date");
+
+        this.genreList = GetGenresfromJsonArray(jsonObject.getJSONArray("genre_ids"));
+
         this.voteAverage = jsonObject.getString("vote_average");
     }
 
@@ -119,6 +131,17 @@ public class Movie implements Parcelable{
         return  results;
     }
 
+    public static List<String> GetGenresfromJsonArray(JSONArray array) throws JSONException {
+
+        List<String> list = new ArrayList<String>();
+        for(int i = 0; i < array.length(); i++){
+            list.add(array.getString(i));
+        }
+
+
+        return list;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -133,6 +156,7 @@ public class Movie implements Parcelable{
         parcel.writeString(backdropPath);
         parcel.writeString(releaseDate);
         parcel.writeString(voteAverage);
+        parcel.writeStringList(genreList);
 
     }
 }

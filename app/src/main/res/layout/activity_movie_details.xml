@@ -47,7 +47,7 @@
         android:layout_toEndOf="@+id/iv_moviePoster"
         android:layout_below="@id/movieBackDrop"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="vertical"
@@ -68,39 +68,56 @@
             android:layout_margin="@dimen/imgviewMargin"
             android:maxLines="1"/>
 
-        <!--<TextView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/avgRating"-->
-            <!--android:layout_marginTop="@dimen/txtviewMargin"-->
-            <!--android:textColor="@color/secondary_text"-->
-            <!--android:layout_margin="@dimen/imgviewMargin"-->
-            <!--android:text="Rating"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/ratingText"
+            android:text="Rating:"
+            android:layout_margin="@dimen/imgviewMargin"
+            android:textStyle="bold"
+            android:layout_below="@+id/dateReleased"
+            android:textColor="@color/secondary_text"
+            />
 
         <RatingBar
             android:id="@+id/avgRating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/imgviewMargin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="?android:attr/ratingBarStyleSmall"
-
+            android:layout_toRightOf="@+id/ratingText"
+            android:layout_below="@+id/dateReleased"
             android:numStars="5"
             android:stepSize="0.5"
+            />
 
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/genreText"
+            android:text="Genre:"
+            android:layout_margin="@dimen/imgviewMargin"
+            android:textStyle="bold"
+            android:layout_below="@+id/ratingText"
+            android:textColor="@color/secondary_text"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Genre"
             android:textColor="@color/secondary_text"
+            android:layout_toRightOf="@id/genreText"
             android:layout_margin="@dimen/imgviewMargin"
             android:id="@+id/genres"
-            android:layout_marginTop="@dimen/txtviewMargin"/>
+            android:layout_marginTop="@dimen/txtviewMargin"
+            android:layout_below="@+id/ratingText"/>
 
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/movieOverview"

@@ -71,6 +71,7 @@ public class MovieActivity extends AppCompatActivity {
                 Movie details = movies.get(position);
                 Intent intent = new Intent(MovieActivity.this,MovieDetails.class);
                 intent.putExtra("MOVIE_DETAIL", details );
+                //intent.putExtra("Genres", (Parcelable) details.getGenreList());
                 intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intent);
             }
