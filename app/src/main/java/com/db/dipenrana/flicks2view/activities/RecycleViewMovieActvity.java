@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.db.dipenrana.flicks2view.R;
+import com.db.dipenrana.flicks2view.adapters.ComplexRecyclerViewAdapter;
 import com.db.dipenrana.flicks2view.adapters.MoviesAdapter;
 import com.db.dipenrana.flicks2view.adapters.RecycleViewMoviesAdapter;
 import com.db.dipenrana.flicks2view.models.Movie;
@@ -36,7 +37,9 @@ public class RecycleViewMovieActvity extends AppCompatActivity {
 
     private ArrayList<Movie> movies = new ArrayList<Movie>();
     RecycleViewMoviesAdapter rvmoviesAdapter;
+    ComplexRecyclerViewAdapter crvmoviesAdapter;
     RecyclerView rvItems;
+
 
 
     @Override
@@ -50,10 +53,12 @@ public class RecycleViewMovieActvity extends AppCompatActivity {
 
 //        //adapter to convert list of movies to view
         rvmoviesAdapter = new RecycleViewMoviesAdapter(this, movies);
+        crvmoviesAdapter = new ComplexRecyclerViewAdapter(this,movies);
 //
 //        //attach listview to adpater
         rvItems = (RecyclerView) findViewById(R.id.rvMovies);
-        rvItems.setAdapter(rvmoviesAdapter);
+        //rvItems.setAdapter(rvmoviesAdapter);
+        rvItems.setAdapter(crvmoviesAdapter);
         // Set layout manager to position the items
         rvItems.setLayoutManager(new LinearLayoutManager(this));
 
@@ -92,7 +97,8 @@ public class RecycleViewMovieActvity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     movies.addAll(Movie.GetMoviesfromJsonArray(response.getJSONArray("results")));
-                    rvmoviesAdapter.notifyDataSetChanged();
+                    //rvmoviesAdapter.notifyDataSetChanged();
+                    crvmoviesAdapter.notifyDataSetChanged();
                     Log.d("Debug","httpclient get success");
                 } catch (JSONException e) {
                     e.printStackTrace();

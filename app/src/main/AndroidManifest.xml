@@ -13,15 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--<activity-->
-            <!--android:name=".activities.MovieActivity"-->
-            <!--android:screenOrientation="fullSensor">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+        <!-- <activity -->
+        <!-- android:name=".activities.MovieActivity" -->
+        <!-- android:screenOrientation="fullSensor"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
+
+        <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
         <activity
             android:name=".activities.RecycleViewMovieActvity"
             android:screenOrientation="fullSensor">
@@ -33,8 +34,10 @@
         </activity>
         <activity android:name=".activities.MovieDetails" />
         <activity android:name=".activities.MovieActivity" />
-        <!--<activity android:name=".activities.RecycleViewMovieActvity"></activity>-->
+        <!-- <activity android:name=".activities.RecycleViewMovieActvity"></activity> -->
 
+        <activity android:name=".activities.MovieBackdropActivity" />
+        <activity android:name=".activities.MoviePosterAcivity"></activity>
     </application>
 
 </manifest>
